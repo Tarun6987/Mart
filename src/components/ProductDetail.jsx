@@ -715,7 +715,6 @@ export default function ProductDetail() {
           Reviews({product.reviews.length})
         </span>
       </div>
-
       {/* Content */}
       <div>
         {activeTab === "description" ? (

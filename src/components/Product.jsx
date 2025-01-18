@@ -853,6 +853,7 @@ export default function Productpage() {
                 <div className="text-container text-center text-lg-start mb-3 mb-lg-0">
                   <h1 className="display-4">{slide.title}</h1>
                   <p className="lead">{slide.desc}</p>
+                  <p >Visit collections</p>
                 </div>
                 <div className="carousel-image mt-3 mt-lg-0">
                   <img src={slide.imgUrl} alt={`Slide ${index + 1}`} className="img-fluid" />
