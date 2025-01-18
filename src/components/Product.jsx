@@ -1,5 +1,5 @@
 import React, { useContext, useEffect} from 'react';
-import { AppContext } from './App';
+import { AppContext} from './App';
 import { ToastContainer} from 'react-toastify';
 import productImg01 from "../Images/double-sofa-01.png";
 import productImg02 from "../Images/double-sofa-02.png";
@@ -33,8 +33,9 @@ import wireless04 from "../Images/wireless-04.png";
 
 import sofaSlide from "../Images/hero-img.png";
 import watchSlide from "../Images/watch-07.png";
+// import './styles.css'
 export default function Productpage() {
-  const { products, setProducts ,addtocart} = useContext(AppContext);
+  const { products, setProducts, addtocart } = useContext(AppContext);
   const SliderData = [
     {
       id: 1,
@@ -842,7 +843,7 @@ export default function Productpage() {
             ></button>
           ))}
         </div>
-        <div className="carousel-inner">
+        <div className="carousel-inner" style={{height:'450px',marginTop:'100px'}}>
           {SliderData.map((slide, index) => (
             <div
               key={slide.id}
@@ -879,39 +880,56 @@ export default function Productpage() {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-  
+
       <div className="row gy-4 mt-4">
         {serviceData.map((service, index) => (
           <div
-          key={index}
-          className="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-evenly align-items-center"
-        >
-          <div
-            className="card text-center d-flex justify-content-center align-items-center"
-            style={{ backgroundColor: service.bg, border: 'none' }}
+            key={index}
+            className="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-evenly align-items-center"
           >
-            <div className="card-body text-center">
-              <div className="display-4 text-primary mb-3">{service.icon}</div>
-              <h5 className="card-title fw-bold">{service.title}</h5>
-              <p className="card-text text-muted">{service.subtitle}</p>
+            <div
+              className="card text-center d-flex justify-content-center align-items-center"
+              style={{ backgroundColor: service.bg, border: 'none' }}
+            >
+              <div className="card-body text-center">
+                <div className="display-4 text-primary mb-3">{service.icon}</div>
+                <h5 className="card-title fw-bold">{service.title}</h5>
+                <p className="card-text text-muted">{service.subtitle}</p>
+              </div>
             </div>
           </div>
-        </div>
-        
+
         ))}
       </div>
-  
       <div className="row gy-4 mt-4">
-        <h1 className="text-center">Discounted Products</h1>
+        <h1 className="text-center">Big Discount</h1>
         {discountProducts.map((product, index) => (
           <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-4 d-flex justify-content-evenly">
-            <div className="card" style={{ width: '18rem' }}>
+            <div className="card position-relative" style={{ width: '18rem' }}>
+                <div class="btn text-white" style={{backgroundColor: 'rgb(12, 36, 12)',width: 'fit-content',
+                  borderRadius: '8px'}}>{product.discount}% off</div>   
+                <i
+                  className="far fa-heart text-dark heart-icon"
+                  style={{
+                    fontSize: '20px', 
+                    position:'absolute',
+                    top:'8px',
+                    left:'250px'
+                     // Adjust the size as needed
+                  }}
+                ></i>
+              {/* </div> */}
+
+
+              {/* Product Image */}
               <img
                 src={product.imgUrl}
                 alt={product.productName}
                 className="card-img-top"
                 style={{ height: '150px', objectFit: 'contain' }}
               />
+
+              {/* Card Body */}
               <div className="card-body text-center">
                 <h5 className="card-title">{product.productName.slice(0, 20)}</h5>
                 <div>
@@ -921,11 +939,11 @@ export default function Productpage() {
                 </div>
                 <div className="d-flex justify-content-between align-items-center mt-2">
                   <h4 className="card-text mb-0">${product.price}</h4>
-                  <button
-                    className="btn btn-secondary rounded-circle"
+                  <button id='plus-icon'
+                    className="btn rounded-circle"
                     onClick={() => addtocart(product.id)}
                   >
-                    <i className="fas fa-plus"></i>
+                    <i className="fas fa-plus" ></i>
                   </button>
                 </div>
               </div>
@@ -933,14 +951,25 @@ export default function Productpage() {
           </div>
         ))}
       </div>
-  
+
+
       <div className="row gy-4 mt-4">
-        <h1 className="text-center">Best Arrivals</h1>
+        <h1 className="text-center">New Arrivals</h1>
         {products
           .filter((product) => product.category === 'mobile')
           .map((product, index) => (
             <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-4 d-flex justify-content-evenly">
               <div className="card" style={{ width: '18rem' }}>
+              <i
+                  className="far fa-heart text-dark heart-icon"
+                  style={{
+                    fontSize: '20px', 
+                    position:'absolute',
+                    top:'8px',
+                    left:'250px'
+                     // Adjust the size as needed
+                  }}
+                ></i>
                 <img
                   src={product.imgUrl}
                   alt={product.productName}
@@ -956,26 +985,36 @@ export default function Productpage() {
                   </div>
                   <div className="d-flex justify-content-between align-items-center mt-2">
                     <h4 className="card-text mb-0">${product.price}</h4>
-                    <button
-                      className="btn btn-secondary rounded-circle"
-                      onClick={() => addtocart(product.id)}
-                    >
-                      <i className="fas fa-plus"></i>
-                    </button>
+                    <button id='plus-icon'
+                    className="btn rounded-circle"
+                    onClick={() => addtocart(product.id)}
+                  >
+                    <i className="fas fa-plus" ></i>
+                  </button>
                   </div>
                 </div>
               </div>
             </div>
           ))}
       </div>
-  
+
       <div className="row gy-4 mt-4">
-        <h1 className="text-center">Best Deals</h1>
+        <h1 className="text-center">Best Sales</h1>
         {products
           .filter((product) => product.category === 'sofa')
           .map((product, index) => (
             <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-4 d-flex justify-content-evenly">
               <div className="card" style={{ width: '18rem' }}>
+              <i
+                  className="far fa-heart text-dark heart-icon"
+                  style={{
+                    fontSize: '20px', 
+                    position:'absolute',
+                    top:'8px',
+                    left:'250px'
+                     // Adjust the size as needed
+                  }}
+                ></i>
                 <img
                   src={product.imgUrl}
                   alt={product.productName}
@@ -991,19 +1030,19 @@ export default function Productpage() {
                   </div>
                   <div className="d-flex justify-content-between align-items-center mt-2">
                     <h4 className="card-text mb-0">${product.price}</h4>
-                    <button
-                      className="btn btn-secondary rounded-circle"
-                      onClick={() => addtocart(product.id)}
-                    >
-                      <i className="fas fa-plus"></i>
-                    </button>
+                    <button id='plus-icon'
+                    className="btn rounded-circle"
+                    onClick={() => addtocart(product.id)}
+                  >
+                    <i className="fas fa-plus" ></i>
+                  </button>
                   </div>
                 </div>
               </div>
             </div>
           ))}
       </div>
-  
+
       <ToastContainer
         position="top-right"
         autoClose={3000}
@@ -1014,5 +1053,5 @@ export default function Productpage() {
       />
     </div>
   );
-  
+
 }  

@@ -49,7 +49,7 @@ export default function Cartpage() {
                     </div>
                   </div>
                   <i
-                      className="fas fa-times text-danger me-3"
+                      className="fas fa-times fw-bold text-dark me-3"
                       onClick={() => removeFromCart(product)} 
                     ></i>
                   <div className="d-flex align-items-center">
@@ -58,11 +58,13 @@ export default function Cartpage() {
                       className="btn btn-dark btn-sm me-1"
                       
                     >
-                      -
+                    <i className="fas fa-minus"></i>
+
                     </button>
                     <span className="mx-2">{cart[product.id]}</span>
                     <button onClick={() => inc(product)} className="btn btn-dark btn-sm">
-                      +
+                    <i className="fas fa-plus"></i>
+
                     </button>
                   </div>
                 </div>
