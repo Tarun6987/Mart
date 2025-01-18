@@ -712,7 +712,7 @@ export default function ProductDetail() {
           }`}
           style={{ cursor: "pointer" }}
         >
-          Reviews
+          Reviews({product.reviews.length})
         </span>
       </div>
 

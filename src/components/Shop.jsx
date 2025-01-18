@@ -662,7 +662,7 @@ export default function Shop() {
       {/* Product Cards Section */}
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
         {filteredProducts.map((product, index) => (
-          <Link to="/shop/detail" state={{ product }} key={index}>
+          <Link to="/shop/detail"className="text-decoration-none" state={{ product }} key={index}>
             <div className="col d-flex justify-content-center">
               <div className="card" style={{ width: '18rem' }}>
                 <img
