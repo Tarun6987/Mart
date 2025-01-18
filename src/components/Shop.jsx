@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { AppContext } from './App';
 import productImg01 from "../Images/double-sofa-01.png";
 import productImg02 from "../Images/double-sofa-02.png";
 import productImg03 from "../Images/double-sofa-03.png";
@@ -30,8 +29,6 @@ import wireless02 from "../Images/wireless-02.png";
 import wireless03 from "../Images/wireless-03.png";
 import wireless04 from "../Images/wireless-04.png";
 
-import sofaSlide from "../Images/hero-img.png";
-import watchSlide from "../Images/watch-07.png";
 import { Link } from 'react-router-dom';
 export default function Shop() {
   const { products, setProducts } = useContext(AppContextNew);
