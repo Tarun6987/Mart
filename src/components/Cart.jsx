@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { AppContextNew } from './App';
+import { AppContext } from './App';
 export default function Cartpage() {
-  const { cart, setCart, products, inc, dec } = useContext(AppContextNew);
+  const { cart, setCart, products, inc, dec } = useContext(AppContext);
   const [orderval, setOrderVal] = useState(0);
   useEffect(() => {
     setOrderVal(

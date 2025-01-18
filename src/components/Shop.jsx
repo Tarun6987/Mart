@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { AppContextNew } from './App';
+import { AppContext } from './App';
 import productImg01 from "../Images/double-sofa-01.png";
 import productImg02 from "../Images/double-sofa-02.png";
 import productImg03 from "../Images/double-sofa-03.png";
@@ -34,7 +34,7 @@ import sofaSlide from "../Images/hero-img.png";
 import watchSlide from "../Images/watch-07.png";
 import { Link } from 'react-router-dom';
 export default function Shop() {
-  const { products, setProducts } = useContext(AppContextNew);
+  const { products, setProducts } = useContext(AppContext);
   const [search, setSearch] = useState('')
   const [change, setChange] = useState('sofa')
   const handleSearch = (e) => {

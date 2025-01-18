@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { AppContextNew } from './App';
+import { AppContext } from './App';
 import { ToastContainer, toast } from 'react-toastify';
 import productImg01 from "../Images/double-sofa-01.png";
 import productImg02 from "../Images/double-sofa-02.png";
@@ -34,7 +34,7 @@ import wireless04 from "../Images/wireless-04.png";
 import sofaSlide from "../Images/hero-img.png";
 import watchSlide from "../Images/watch-07.png";
 export default function Productpage() {
-  const { cart, setCart, products, setProducts ,addtocart} = useContext(AppContextNew);
+  const { products, setProducts ,addtocart} = useContext(AppContext);
   const SliderData = [
     {
       id: 1,

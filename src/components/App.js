@@ -9,7 +9,7 @@ import Nav from "./Navbar";
 import Footer from "./Footer";
 import Shop from "./Shop";
 import ProductDetail from "./ProductDetail";
-export const AppContextNew=createContext();
+export const AppContext=createContext();
 function AppTask() {
 const [cart,setCart]=useState({})
 const [products,setProducts]=useState([])
@@ -30,7 +30,7 @@ const dec = (product) => {
   return (
     <div>
         <BrowserRouter>
-            <AppContextNew.Provider value={{cart,setCart,products,setProducts,inc,dec,addtocart,qty,setQty,handleQty}}>
+            <AppContext.Provider value={{cart,setCart,products,setProducts,inc,dec,addtocart,qty,setQty,handleQty}}>
                 <Nav/>
                 <Routes>
                     <Route path="/"element={<Productpage/>}></Route>
@@ -39,7 +39,7 @@ const dec = (product) => {
                     <Route path="/shop/detail" element={<ProductDetail/>} />
                 </Routes>
                 <Footer/>
-            </AppContextNew.Provider>
+            </AppContext.Provider>
         </BrowserRouter>
     </div>
   );
