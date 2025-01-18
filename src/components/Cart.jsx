@@ -17,9 +17,8 @@ export default function Cartpage() {
     delete updatedCart[product.id];
     setCart(updatedCart);
   };
-
   return (
-    <div className="container " style={{marginTop:'100px'}}>
+    <div className="container " style={{ marginTop: '100px', backgroundColor: 'lightgrey' }}>
       <div className="row gy-4">
         <div className="col-12 col-lg-8">
           {Object.keys(cart).length === 0 ? (
@@ -27,10 +26,7 @@ export default function Cartpage() {
           ) : (
             products.map((product, index) =>
               cart[product.id] ? (
-                <div
-                  key={index}
-                  className="d-flex justify-content-between align-items-center p-3 border rounded mb-3"
-                >
+                <div key={index} style={{ backgroundColor: 'white' ,width:'auto'}} className="d-flex justify-content-between align-items-center p-3 border rounded mb-3">
                   <div className="d-flex align-items-center">
                     <img
                       src={product.imgUrl}
@@ -40,36 +36,43 @@ export default function Cartpage() {
                     />
                     <div>
                       <h5>{product.productName}</h5>
-                      <p className="mb-0 text-muted">
+                      <p className="mb-0 text-muted ">
                         ${product.price.toFixed(2)} * {cart[product.id]}{' '}
-                        <span>
+                        <span className='text-primary' style={{marginLeft:'20px'}}>
                           <b> ${product.price.toFixed(2) * cart[product.id]}</b>
                         </span>
                       </p>
                     </div>
                   </div>
-                  <i
-                      className="fas fa-times fw-bold text-dark me-3"
-                      onClick={() => removeFromCart(product)} 
+
+                  {/* Column for remove icon and increment/decrement buttons */}
+                  <div className="d-flex flex-column align-items-end">
+                    <i
+                      className="fas fa-times text-dark mb-2"
+                      onClick={() => removeFromCart(product)}
+                      style={{ cursor: 'pointer', position: 'relative', bottom: '27px', right: '7px' }}
                     ></i>
-                  <div className="d-flex align-items-center">
-                    <button
-                      onClick={() => dec(product)}
-                      className="btn btn-dark btn-sm me-1"
-                      
-                    >
-                    <i className="fas fa-minus"></i>
+                    <div className="d-flex align-items-center">
 
-                    </button>
-                    <span className="mx-2">{cart[product.id]}</span>
-                    <button onClick={() => inc(product)} className="btn btn-dark btn-sm">
-                    <i className="fas fa-plus"></i>
+                      <button onClick={() => inc(product)} className="btn btn-sm text-primary btn-outline-info bg-white ">
+                        <i className="fas fa-plus"></i>
+                      </button>
 
-                    </button>
+                      <span className="mx-2">{cart[product.id]}</span>
+
+                      <button
+                        onClick={() => dec(product)}
+                        className="btn btn-sm me-1 " style={{backgroundColor:'whitesmoke'}}
+                      >
+                        <i className="fas fa-minus"></i>
+                      </button>
+
+                    </div>
                   </div>
                 </div>
               ) : null
             )
+
           )}
         </div>
         <div className="col-12 col-lg-4">
