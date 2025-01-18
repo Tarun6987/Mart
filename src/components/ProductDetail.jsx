@@ -741,7 +741,6 @@ export default function ProductDetail() {
         )}
       </div>
     </div>
-  
       {/* Related Products Section */}
       <div>
         <h2 className="mb-4">You might also like</h2>
@@ -769,12 +768,12 @@ export default function ProductDetail() {
                   </div>
                   <div className="d-flex justify-content-between align-items-center mt-2">
                     <h4 className="card-text mb-0">${relatedProduct.price}</h4>
-                    <button
-                      className="btn btn-secondary rounded-circle"
-                      onClick={() => addtocart(relatedProduct.id)}
-                    >
-                      <i className="fas fa-plus"></i>
-                    </button>
+                    <button id='plus-icon'
+                    className="btn rounded-circle"
+                    onClick={() => addtocart(relatedProduct.id)}
+                  >
+                    <i className="fas fa-plus" ></i>
+                  </button>
                   </div>
                 </div>
               </div>

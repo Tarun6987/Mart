@@ -906,7 +906,7 @@ export default function Productpage() {
         {discountProducts.map((product, index) => (
           <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-4 d-flex justify-content-evenly">
             <div className="card position-relative" style={{ width: '18rem' }}>
-                <div class="btn text-white" style={{backgroundColor: 'rgb(12, 36, 12)',width: 'fit-content',
+                <div class="btn text-white" style={{backgroundColor: 'rgb(9, 121, 105)',width: 'fit-content',
                   borderRadius: '8px'}}>{product.discount}% off</div>   
                 <i
                   className="far fa-heart text-dark heart-icon"

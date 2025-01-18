@@ -1,50 +1,106 @@
 import React from 'react';
+
 export default function Footer() {
   return (
-    <footer className="bg-dark text-light py-4">
-      <div className="container">
-        <div className="row">
-          {/* About Section */}
-          <div className="col-12 col-md-4 mb-4 mb-md-0">
-            <h5>About</h5>
-            <ul className="list-unstyled">
-              <li><a href="/about" className="text-light text-decoration-none">About Us</a></li>
-              <li><a href="/team" className="text-light text-decoration-none">Our Team</a></li>
-              <li><a href="/careers" className="text-light text-decoration-none">Careers</a></li>
-              <li><a href="/press" className="text-light text-decoration-none">Press</a></li>
-              <li><a href="/blog" className="text-light text-decoration-none">Blog</a></li>
-            </ul>
+    <div>
+      <footer
+        style={{
+          backgroundColor: '#002147',
+          color: 'white',
+          padding: '40px 20px',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-around',
+            flexWrap: 'wrap',
+            textAlign: 'left',
+          }}
+        >
+          {/* Column 1 */}
+          <div
+            style={{
+              flex: 1,
+              minWidth: '200px',
+              padding: '10px',
+            }}
+          >
+            <h3>Mart</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor libero
+              id et, in gravida. Sit diam duis mauris nulla cursus. Erat et lectus vel
+              ut sollicitudin elit at amet.
+            </p>
           </div>
-          {/* Contact Section */}
-          <div className="col-12 col-md-4 mb-4 mb-md-0">
-            <h5>Contact</h5>
-            <ul className="list-unstyled">
-              <li><a href="mailto:info@example.com" className="text-light text-decoration-none">Email Us</a></li>
-              <li><a href="/support" className="text-light text-decoration-none">Customer Support</a></li>
-              <li><a href="/locations" className="text-light text-decoration-none">Locations</a></li>
-              <li><a href="/faq" className="text-light text-decoration-none">FAQs</a></li>
-              <li><a href="/feedback" className="text-light text-decoration-none">Give Feedback</a></li>
+
+          {/* Column 2 */}
+          <div
+            style={{
+              flex: 1,
+              minWidth: '200px',
+              padding: '10px',
+            }}
+          >
+            <h3>About Us</h3>
+            <ul
+              style={{
+                listStyle: 'none',
+                padding: 0,
+              }}
+            >
+              <li>Careers</li>
+              <li>Our Stores</li>
+              <li>Our Cares</li>
+              <li>Terms & Conditions</li>
+              <li>Privacy Policy</li>
             </ul>
           </div>
 
-          {/* Address Section */}
-          <div className="col-12 col-md-4 mb-4 mb-md-0">
-            <h5>Address</h5>
-            <ul className="list-unstyled">
-              <li>123 Main Street</li>
-              <li>Suite 400</li>
-              <li>Cityville, CA 12345</li>
-              <li>Phone: (123) 456-7890</li>
-              <li><a href="/map" className="text-light text-decoration-none">View on Map</a></li>
+          {/* Column 3 */}
+          <div
+            style={{
+              flex: 1,
+              minWidth: '200px',
+              padding: '10px',
+            }}
+          >
+            <h3>Customer Care</h3>
+            <ul
+              style={{
+                listStyle: 'none',
+                padding: 0,
+              }}
+            >
+              <li>Help Center</li>
+              <li>How to Buy</li>
+              <li>Track Your Order</li>
+              <li>Corporate & Bulk Purchasing</li>
+              <li>Returns & Refunds</li>
             </ul>
           </div>
-        </div>
 
-        {/* Footer Bottom */}
-        <div className="text-center mt-4">
-          <p className="mb-0">© 2025 Your Company. All rights reserved.</p>
+          {/* Column 4 */}
+          <div
+            style={{
+              flex: 1,
+              minWidth: '200px',
+              padding: '10px',
+            }}
+          >
+            <h3>Contact Us</h3>
+            <p>
+              70 Washington Square South,
+              <br />
+              New York, NY 10012, United States
+              <br />
+              Email: example@email.com
+              <br />
+              Phone: +1 1234 567 890
+            </p>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   );
 }
