@@ -641,7 +641,7 @@ export default function Shop() {
       <div className="row mb-4">
         <div className="col-12 col-md-6 mb-3">
           <select onClick={handleChange} className="form-select" id="product-filter">
-            <option>Filter by Category</option>
+            <option value="sofa">Filter by Category</option>
             <option value="sofa">Sofa</option>
             <option value="mobile">Mobile</option>
             <option value="watch">Watch</option>

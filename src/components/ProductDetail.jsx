@@ -677,7 +677,7 @@ export default function ProductDetail() {
                 <input
                   type="number"
                   className="form-control me-3"
-                  value={qty}
+                  value={qty?qty:''}
                   onChange={handleQty}
                   min="1"
                 />
