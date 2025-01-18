@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState} from 'react'
 import productImg01 from "../Images/double-sofa-01.png";
 import productImg02 from "../Images/double-sofa-02.png";
 import productImg03 from "../Images/double-sofa-03.png";
@@ -29,8 +29,9 @@ import wireless03 from "../Images/wireless-03.png";
 import wireless04 from "../Images/wireless-04.png";
 
 import { Link } from 'react-router-dom';
+import { AppContext } from './App';
 export default function Shop() {
-  const { products, setProducts } = useContext(AppContextNew);
+  const { products, setProducts } = useContext(AppContext);
   const [search, setSearch] = useState('')
   const [change, setChange] = useState('sofa')
   const handleSearch = (e) => {

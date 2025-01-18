@@ -1,5 +1,4 @@
 import React from 'react';
-
 export default function Footer() {
   return (
     <footer className="bg-dark text-light py-4">
@@ -16,7 +15,6 @@ export default function Footer() {
               <li><a href="/blog" className="text-light text-decoration-none">Blog</a></li>
             </ul>
           </div>
-
           {/* Contact Section */}
           <div className="col-12 col-md-4 mb-4 mb-md-0">
             <h5>Contact</h5>
