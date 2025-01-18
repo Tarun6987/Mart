@@ -34,7 +34,7 @@ import sofaSlide from "../Images/hero-img.png";
 import watchSlide from "../Images/watch-07.png";
 import { Link } from 'react-router-dom';
 export default function Shop() {
-  const { products, setProducts } = useContext(AppContext);
+  const { products, setProducts } = useContext(AppContextNew);
   const [search, setSearch] = useState('')
   const [change, setChange] = useState('sofa')
   const handleSearch = (e) => {
