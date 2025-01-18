@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { AppContext } from './App';
 
 export default function Nav() {
+  const {cart}=useContext(AppContext)
   return (
     <header>
       <nav className="fixed-top navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3 ">
@@ -46,11 +48,14 @@ export default function Nav() {
                 className="fa fa-user fa-2x"
                 style={{ cursor: 'pointer' }}
               ></i>
+             
               <Link to="/cart">
+              
                 <i
                   className="fa fa-shopping-cart fa-2x text-dark"
                   style={{ cursor: 'pointer' }}
                 ></i>
+                 {Object.keys(cart).length}
               </Link>
             </div>
           </div>
