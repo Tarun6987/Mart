@@ -35,7 +35,7 @@ export default function ProductDetail() {
   const { products, setProducts, addtocart, qty, handleQty } = useContext(AppContext);
   const location = useLocation();
   const { product } = location.state || {}
-  const [activetab,setActiveTab] =useState('description');
+  const [activeTab,setActiveTab] =useState('description');
   const handleClick =(tab)=>{
     setActiveTab(tab);
   }
@@ -693,21 +693,55 @@ export default function ProductDetail() {
           </div>
         </div>
       </div>
-      <div>
-        <div>
-          <span onClick={()=>handleClick('description')}>Description</span>
-          <span onClick={()=>handleClick('reviews')}>  Reviews</span>
-        </div>
-        <div>
-          {activetab==='description'?(product.description):product.reviews.map((review)=>{
-            return( <div key={review.id}>
-              <div>John Doe</div>
-              <div style={{color:'gold'}}>{review.rating} (ratings)</div>
-              <div>{review.text}</div>
-            </div>)
-          })}
-        </div>
+      <div className="container my-4">
+      {/* Tabs */}
+      <div className="d-flex justify-content-start mb-3 border-bottom">
+        <span
+          onClick={() => handleClick("description")}
+          className={`me-4 pb-2 ${
+            activeTab === "description" ? "text-dark fw-bold border-bottom border-3" : "text-muted"
+          }`}
+          style={{ cursor: "pointer" }}
+        >
+          Description
+        </span>
+        <span
+          onClick={() => handleClick("reviews")}
+          className={`pb-2 ${
+            activeTab === "reviews" ? "text-dark fw-bold border-bottom border-3" : "text-muted"
+          }`}
+          style={{ cursor: "pointer" }}
+        >
+          Reviews
+        </span>
       </div>
+
+      {/* Content */}
+      <div>
+        {activeTab === "description" ? (
+          <div>
+            <h3>Product Description</h3>
+            <p>{product.description}</p>
+          </div>
+        ) : (
+          <div>
+            <h3>Product Reviews</h3>
+            {product.reviews && product.reviews.length > 0 ? (
+              product.reviews.map((review) => (
+                <div key={review.id} className="mb-3 p-3 border rounded">
+                  <div className="fw-bold">John Doe</div>
+                  <div className="text-warning">{review.rating} (ratings)</div>
+                  <div>{review.text}</div>
+                </div>
+              ))
+            ) : (
+              <p>No reviews available.</p>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  
       {/* Related Products Section */}
       <div>
         <h2 className="mb-4">You might also like</h2>
