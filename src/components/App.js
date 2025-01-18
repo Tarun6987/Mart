@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { BrowserRouter ,Routes,Route} from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 import Productpage from "./Product";
 import Cartpage from "./Cart";
 import { createContext, useState} from "react";
