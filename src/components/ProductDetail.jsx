@@ -626,7 +626,6 @@ export default function ProductDetail() {
             text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
           },
         ],
-        avgRating: 4.8,
       },
 
     ]
