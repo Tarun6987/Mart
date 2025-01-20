@@ -33,9 +33,6 @@ import { Link } from 'react-router-dom';
 import { AppContext } from './App';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-
-
-
 export default function Shop() {
   const { products, setProducts } = useContext(AppContext);
   const [search, setSearch] = useState('')
@@ -651,6 +648,7 @@ export default function Shop() {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
+          backgroundColor: 'dimgray',
           height: '250px',
           width: '100vw',
           marginTop: '100px',
@@ -660,26 +658,27 @@ export default function Shop() {
           alignItems: 'center',
         }}
       >
-        <h1 style={{ color: 'white' }}>Product</h1>
+        <h1 style={{ color: 'rgba(255, 255, 255, 1)' }}>Product</h1>
       </div>
-
+  
       {/* Filter Section */}
       <div className="row mb-4">
         <div
           className="col-12 col-md-6 mb-3"
           style={{ width: 'fit-content', marginLeft: '110px' }}
         >
+          {/* Select Dropdown */}
           <select
             onClick={handleChange}
             className="form-select"
             id="product-filter"
             style={{
-              backgroundColor: 'rgb(0, 0, 139)',  // Background color
-              color: 'white',  
-              paddingRight: '30px',  // Space for custom arrow
-              border: '1px solid #ccc',  // Optional border for styling
-              fontSize: '16px',  // Font size
-             
+              color: 'white',
+              paddingRight: '30px',
+              border: '1px solid #ccc',
+              fontSize: '16px',
+              appearance: 'none', // Removes default dropdown arrow
+              outline: 'none', // Removes focus outline
             }}
           >
             <option value="sofa">Filter by Category |</option>
@@ -689,9 +688,9 @@ export default function Shop() {
             <option value="wireless">Wireless</option>
             <option value="chair">Chair</option>
           </select>
-
-
         </div>
+  
+        {/* Search Input */}
         <div className="col-12 col-md-6 mb-3">
           <div className="input-group" style={{ position: 'relative' }}>
             <input
@@ -701,15 +700,17 @@ export default function Shop() {
               placeholder="Search products"
               style={{
                 borderRadius: '50px',
-                paddingLeft: '30px', 
-                paddingRight: '30px', 
+                paddingLeft: '30px',
+                paddingRight: '30px',
+                outline: 'none', // Removes focus outline
+                boxShadow: 'none', // Prevents shadow focus
               }}
             />
             <span
               className="input-group-text"
               style={{
                 position: 'absolute',
-                right: '10px', // Position the icon inside the input field on the right
+                right: '10px',
                 top: '50%',
                 transform: 'translateY(-50%)',
                 background: 'none',
@@ -722,7 +723,7 @@ export default function Shop() {
           </div>
         </div>
       </div>
-
+  
       {/* Product Cards Section */}
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
         {filteredProducts.map((product, index) => (
@@ -741,7 +742,9 @@ export default function Shop() {
                   style={{ height: '150px', objectFit: 'contain' }}
                 />
                 <div className="card-body text-center">
-                  <h5 className="card-title">{product.productName.slice(0, 20)}</h5>
+                  <h5 className="card-title">
+                    {product.productName.slice(0, 20)}
+                  </h5>
                   <div>
                     {[...Array(5)].map((_, index) => (
                       <i
@@ -763,4 +766,4 @@ export default function Shop() {
       </div>
     </div>
   );
-}
+}  
