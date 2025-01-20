@@ -902,8 +902,6 @@ export default function Productpage() {
           </div>
         ))}
       </div>
-  
-      {/* Big Discount Section */}
       <div className="container mt-4">
         <ToastContainer
                 position="top-right"
