@@ -678,18 +678,14 @@ export default function ProductDetail() {
       fontWeight: 'bold',
       color: 'rgba(255, 255, 255, 1)',
       textShadow: '2px 2px 8px rgba(0, 0, 0, 0.8)', // Make text more focused
-      zIndex: 1, // Ensure text is on top
+      zIndex: 1,
     }}
   >
     {product.productName}
   </h1>
 </div>
-
-
-      {/* Product Detail Card */}
       <div className="card mb-4">
         <div className="row g-0">
-          {/* Product Image */}
           <div className="col-md-6">
             <img
               src={product.imgUrl}
@@ -698,7 +694,6 @@ export default function ProductDetail() {
               style={{ height: '400px', objectFit: 'contain' }}
             />
           </div>
-          {/* Product Details */}
           <div className="col-md-6">
             <div className="card-body">
               <h5 className="card-title">{product.productName}</h5>
@@ -717,7 +712,6 @@ export default function ProductDetail() {
               <p className="card-text">
                 <strong>Ratings:</strong> {product.reviews[0]?.rating || 'N/A'} ratings
               </p>
-              {/* Quantity Input and Add to Cart Button */}
               <div className="d-flex align-items-center">
                 <input
                   type="number"
@@ -739,7 +733,6 @@ export default function ProductDetail() {
         </div>
       </div>
       <div className="my-4 me-5">
-        {/* Tabs */}
         <div className="d-flex justify-content-start mb-3 border-bottom">
           <span
             onClick={() => handleClick("description")}
@@ -758,7 +751,6 @@ export default function ProductDetail() {
             Reviews({product.reviews.length})
           </span>
         </div>
-        {/* Content */}
         <div className="">
           <div className="row">
             <div className="col-12 col-md-10 col-lg-8">
@@ -787,7 +779,6 @@ export default function ProductDetail() {
           </div>
         </div>
       </div>
-      {/* Related Products Section */}
       <div>
         <h2 className="mb-4 text-center">You might also like</h2>
         <div className="row g-4 justify-content-center">
