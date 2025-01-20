@@ -3,7 +3,6 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AppContext } from './App';
-
 export default function Nav() {
   let {cart} = useContext(AppContext);
   return (
@@ -36,13 +35,11 @@ export default function Nav() {
               <Link to="/shop" className="nav-link fs-4 fw-bold px-2">
                 Shop
               </Link>
-            </li>
-            
+            </li>        
             <li className="nav-item position-relative">
               <Link to="/cart" className="nav-link fs-4 fw-bold px-2">
                 Cart
-              </Link>
-          
+              </Link>    
             </li>
           </ul>
           <div className="d-flex align-items-center gap-3 ms-lg-4 mt-3 mt-lg-0">
