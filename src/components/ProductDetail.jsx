@@ -647,7 +647,7 @@ export default function ProductDetail() {
   className="d-flex justify-content-center align-items-center text-white position-relative"
   style={{
     backgroundImage: `url(${table})`,
-    backgroundSize: '100% 75%', // Customize the size of the background
+    backgroundSize: '100% 75%', 
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     height: '350px',
@@ -656,7 +656,6 @@ export default function ProductDetail() {
     overflow: 'hidden',
   }}
 >
-  {/* Add the water reflection effect */}
   <div
     className="position-absolute top-100 start-0 w-100"
     style={{
