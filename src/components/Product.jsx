@@ -962,8 +962,6 @@ export default function Productpage() {
             </div>
           ))}
         </div>
-  
-        {/* New Arrivals Section */}
         <div className="row gy-4 mt-4">
           <h1 className="text-center w-100">New Arrivals</h1>
           {products
