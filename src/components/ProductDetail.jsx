@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import { AppContext } from './App';
-import { ToastContainer} from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import productImg01 from "../Images/double-sofa-01.png";
 import productImg02 from "../Images/double-sofa-02.png";
 import productImg03 from "../Images/double-sofa-03.png";
@@ -30,13 +30,14 @@ import wireless01 from "../Images/wireless-01.png";
 import wireless02 from "../Images/wireless-02.png";
 import wireless03 from "../Images/wireless-03.png";
 import wireless04 from "../Images/wireless-04.png";
+import table from '../Images/table.jpg';
 
 export default function ProductDetail() {
   const { products, setProducts, addtocart, qty, handleQty } = useContext(AppContext);
   const location = useLocation();
   const { product } = location.state || {}
-  const [activeTab,setActiveTab] =useState('description');
-  const handleClick =(tab)=>{
+  const [activeTab, setActiveTab] = useState('description');
+  const handleClick = (tab) => {
     setActiveTab(tab);
   }
   useEffect(() => {
@@ -632,15 +633,31 @@ export default function ProductDetail() {
     )
   }, [setProducts])
   return (
-    <div className="container py-4" style={{ marginTop: '100px' }}>
+    <div className="container-fluid py-4" style={{ marginTop: '20px' }}>
       <ToastContainer
         position="top-right"
-        autoClose={3000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
         rtl={false}
       />
+      <div
+        id="ctn"
+        className="d-flex justify-content-center align-items-center text-white"
+        style={{
+          backgroundImage: `url(${table})`,
+          backgroundSize: '100% 75%',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          height: '350px',
+          width: '100%',
+          marginBottom: '20px',
+        }}
+      >
+        <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold' }}>{product.productName}</h1>
+      </div>
+
       {/* Product Detail Card */}
       <div className="card mb-4">
         <div className="row g-0">
@@ -677,14 +694,14 @@ export default function ProductDetail() {
                 <input
                   type="number"
                   className="form-control me-3"
-                  value={qty?qty:''}
+                  value={qty ? qty : ''}
                   onChange={handleQty}
                   min="1"
                 />
 
               </div>
               <button
-                className="btn btn-primary mt-3"
+                className="btn mt-3" style={{ backgroundColor: 'rgb(0,71,171)', color: 'white' }}
                 onClick={() => addtocart(product.id)}
               >
                 Add to Cart
@@ -693,91 +710,96 @@ export default function ProductDetail() {
           </div>
         </div>
       </div>
-      <div className="container my-4">
-      {/* Tabs */}
-      <div className="d-flex justify-content-start mb-3 border-bottom">
-        <span
-          onClick={() => handleClick("description")}
-          className={`me-4 pb-2 ${
-            activeTab === "description" ? "text-dark fw-bold border-bottom border-3" : "text-muted"
-          }`}
-          style={{ cursor: "pointer" }}
-        >
-          Description
-        </span>
-        <span
-          onClick={() => handleClick("reviews")}
-          className={`pb-2 ${
-            activeTab === "reviews" ? "text-dark fw-bold border-bottom border-3" : "text-muted"
-          }`}
-          style={{ cursor: "pointer" }}
-        >
-          Reviews({product.reviews.length})
-        </span>
-      </div>
-      {/* Content */}
-      <div>
-        {activeTab === "description" ? (
-          <div>
-            <h3>Product Description</h3>
-            <p>{product.description}</p>
-          </div>
-        ) : (
-          <div>
-            <h3>Product Reviews</h3>
-            {product.reviews && product.reviews.length > 0 ? (
-              product.reviews.map((review) => (
-                <div key={review.id} className="mb-3 p-3 border rounded">
-                  <div className="fw-bold">John Doe</div>
-                  <div className="text-warning">{review.rating} (ratings)</div>
-                  <div>{review.text}</div>
+      <div className="my-4 me-5">
+        {/* Tabs */}
+        <div className="d-flex justify-content-start mb-3 border-bottom">
+          <span
+            onClick={() => handleClick("description")}
+            className={`me-5 pb-2 ${activeTab === "description" ? "text-dark fw-bold border-bottom border-3" : "text-muted"
+              }`}
+            style={{ cursor: "pointer" }}
+          >
+            Description
+          </span>
+          <span
+            onClick={() => handleClick("reviews")}
+            className={`pb-2 ${activeTab === "reviews" ? "text-dark fw-bold border-bottom border-3" : "text-muted"
+              }`}
+            style={{ cursor: "pointer" }}
+          >
+            Reviews({product.reviews.length})
+          </span>
+        </div>
+        {/* Content */}
+        <div className="">
+          <div className="row">
+            <div className="col-12 col-md-10 col-lg-8">
+              {activeTab === "description" ? (
+                <div className="p-3 bg-light rounded shadow-sm">
+                  <h3 className="mb-3">Product Description</h3>
+                  <p className="text-muted">{product.description}</p>
                 </div>
-              ))
-            ) : (
-              <p>No reviews available.</p>
-            )}
+              ) : (
+                <div className="p-3 bg-light rounded shadow-sm">
+                  <h3 className="mb-3">Product Reviews</h3>
+                  {product.reviews && product.reviews.length > 0 ? (
+                    product.reviews.map((review) => (
+                      <div key={review.id} className="mb-3 p-3 border rounded">
+                        <div className="fw-bold">John Doe</div>
+                        <div className="text-warning">{review.rating} (ratings)</div>
+                        <div>{review.text}</div>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-muted">No reviews available.</p>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
-        )}
+        </div>
       </div>
-    </div>
       {/* Related Products Section */}
       <div>
-        <h2 className="mb-4">You might also like</h2>
-        <div className="d-flex flex-wrap gap-4 justify-content-start">
+        <h2 className="mb-4 text-center">You might also like</h2>
+        <div className="row g-4 justify-content-center">
           {products
             .filter((item) => item.category === product.category && item.id !== product.id)
             .map((relatedProduct, index) => (
               <div
                 key={index}
-                className="card"
-                style={{ width: '18rem', flex: '1 1 calc(33.333% - 1rem)', maxWidth: '18rem' }}
+                className="col-12 col-sm-6 col-md-4 col-lg-3"
               >
-                <img
-                  src={relatedProduct.imgUrl}
-                  alt={relatedProduct.productName}
-                  className="card-img-top"
-                  style={{ height: '150px', objectFit: 'contain' }}
-                />
-                <div className="card-body text-center">
-                  <h5 className="card-title">{relatedProduct.productName.slice(0, 20)}</h5>
-                  <div>
-                    {[...Array(5)].map((_, index) => (
-                      <i key={index} className="fas fa-star" style={{ color: 'gold' }}></i>
-                    ))}
-                  </div>
-                  <div className="d-flex justify-content-between align-items-center mt-2">
-                    <h4 className="card-text mb-0">${relatedProduct.price}</h4>
-                    <button id='plus-icon'
-                    className="btn rounded-circle"
-                    onClick={() => addtocart(relatedProduct.id)}
-                  >
-                    <i className="fas fa-plus" ></i>
-                  </button>
+                <div className="card h-100">
+                  <img
+                    src={relatedProduct.imgUrl}
+                    alt={relatedProduct.productName}
+                    className="card-img-top"
+                    style={{ height: '150px', objectFit: 'contain' }}
+                  />
+                  <div className="card-body text-center">
+                    <h5 className="card-title">{relatedProduct.productName.slice(0, 20)}</h5>
+                    <div>
+                      {[...Array(5)].map((_, index) => (
+                        <i key={index} className="fas fa-star" style={{ color: 'gold' }}></i>
+                      ))}
+                    </div>
+                    <div className="d-flex justify-content-between align-items-center mt-2">
+                      <h4 className="card-text mb-0">${relatedProduct.price}</h4>
+                      <button
+                        id="plus-icon"
+                        className="btn rounded-circle"
+                        onClick={() => addtocart(relatedProduct.id)}
+                      >
+                        <i className="fas fa-plus"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
         </div>
+
       </div>
     </div>
   );

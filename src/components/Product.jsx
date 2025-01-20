@@ -824,6 +824,7 @@ export default function Productpage() {
   }, [])
   return (
     <div className="container-fluid px-0 mt-5">
+      {/* Carousel Section */}
       <div
         id="carouselExampleIndicators"
         className="carousel slide"
@@ -843,7 +844,7 @@ export default function Productpage() {
             ></button>
           ))}
         </div>
-        <div className="carousel-inner" style={{height:'450px',marginTop:'100px'}}>
+        <div className="carousel-inner" style={{ height: '450px', marginTop: '100px' }}>
           {SliderData.map((slide, index) => (
             <div
               key={slide.id}
@@ -853,7 +854,7 @@ export default function Productpage() {
                 <div className="text-container text-center text-lg-start mb-3 mb-lg-0">
                   <h1 className="display-4">{slide.title}</h1>
                   <p className="lead">{slide.desc}</p>
-                  <p >Visit collections</p>
+                  <p>Visit collections</p>
                 </div>
                 <div className="carousel-image mt-3 mt-lg-0">
                   <img src={slide.imgUrl} alt={`Slide ${index + 1}`} className="img-fluid" />
@@ -881,7 +882,8 @@ export default function Productpage() {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-
+  
+      {/* Services Section */}
       <div className="row gy-4 mt-4">
         {serviceData.map((service, index) => (
           <div
@@ -899,76 +901,41 @@ export default function Productpage() {
               </div>
             </div>
           </div>
-
         ))}
       </div>
-      <div className="row gy-4 mt-4">
-        <h1 className="text-center">Big Discount</h1>
-        {discountProducts.map((product, index) => (
-          <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-4 d-flex justify-content-evenly">
-            <div className="card position-relative" style={{ width: '18rem' }}>
-                <div class="btn text-white" style={{backgroundColor: 'rgb(9, 121, 105)',width: 'fit-content',
-                  borderRadius: '8px'}}>{product.discount}% off</div>   
-                <i
-                  className="far fa-heart text-dark heart-icon"
-                  style={{
-                    fontSize: '20px', 
-                    position:'absolute',
-                    top:'8px',
-                    left:'250px'
-                     // Adjust the size as needed
-                  }}
-                ></i>
-              {/* </div> */}
-
-
-              {/* Product Image */}
-              <img
-                src={product.imgUrl}
-                alt={product.productName}
-                className="card-img-top"
-                style={{ height: '150px', objectFit: 'contain' }}
+  
+      {/* Big Discount Section */}
+      <div className="container mt-4">
+        <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
               />
-
-              {/* Card Body */}
-              <div className="card-body text-center">
-                <h5 className="card-title">{product.productName.slice(0, 20)}</h5>
-                <div>
-                  {[...Array(5)].map((_, index) => (
-                    <i key={index} className="fas fa-star" style={{ color: 'gold' }}></i>
-                  ))}
-                </div>
-                <div className="d-flex justify-content-between align-items-center mt-2">
-                  <h4 className="card-text mb-0">${product.price}</h4>
-                  <button id='plus-icon'
-                    className="btn rounded-circle"
-                    onClick={() => addtocart(product.id)}
-                  >
-                    <i className="fas fa-plus" ></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-
-      <div className="row gy-4 mt-4">
-        <h1 className="text-center">New Arrivals</h1>
-        {products
-          .filter((product) => product.category === 'mobile')
-          .map((product, index) => (
-            <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-4 d-flex justify-content-evenly">
-              <div className="card" style={{ width: '18rem' }}>
-              <i
-                  className="far fa-heart text-dark heart-icon"
+        <div className="row gy-4">
+          <h1 className="text-center w-100">Big Discount</h1>
+          {discountProducts.map((product, index) => (
+            <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3">
+              <div className="card position-relative h-100 hover-card">
+                <div
+                  className="btn text-white position-absolute top-0 start-0"
                   style={{
-                    fontSize: '20px', 
-                    position:'absolute',
-                    top:'8px',
-                    left:'250px'
-                     // Adjust the size as needed
+                    backgroundColor: 'rgb(9, 121, 105)',
+                    borderRadius: '8px',
+                    margin: '8px',
+                    padding: '4px 8px',
+                  }}
+                >
+                  {product.discount}% off
+                </div>
+                <i
+                  className="far fa-heart text-dark position-absolute heart-icon"
+                  style={{
+                    fontSize: '20px',
+                    top: '8px',
+                    right: '16px',
                   }}
                 ></i>
                 <img
@@ -986,73 +953,107 @@ export default function Productpage() {
                   </div>
                   <div className="d-flex justify-content-between align-items-center mt-2">
                     <h4 className="card-text mb-0">${product.price}</h4>
-                    <button id='plus-icon'
-                    className="btn rounded-circle"
-                    onClick={() => addtocart(product.id)}
-                  >
-                    <i className="fas fa-plus" ></i>
-                  </button>
+                    <button
+                      className="btn rounded-circle"id="plus-icon"
+                      onClick={() => addtocart(product.id)}
+                    >
+                      <i className="fas fa-plus"></i>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
           ))}
-      </div>
-
-      <div className="row gy-4 mt-4">
-        <h1 className="text-center">Best Sales</h1>
-        {products
-          .filter((product) => product.category === 'sofa')
-          .map((product, index) => (
-            <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-4 d-flex justify-content-evenly">
-              <div className="card" style={{ width: '18rem' }}>
-              <i
-                  className="far fa-heart text-dark heart-icon"
-                  style={{
-                    fontSize: '20px', 
-                    position:'absolute',
-                    top:'8px',
-                    left:'250px'
-                     // Adjust the size as needed
-                  }}
-                ></i>
-                <img
-                  src={product.imgUrl}
-                  alt={product.productName}
-                  className="card-img-top"
-                  style={{ height: '150px', objectFit: 'contain' }}
-                />
-                <div className="card-body text-center">
-                  <h5 className="card-title">{product.productName.slice(0, 20)}</h5>
-                  <div>
-                    {[...Array(5)].map((_, index) => (
-                      <i key={index} className="fas fa-star" style={{ color: 'gold' }}></i>
-                    ))}
-                  </div>
-                  <div className="d-flex justify-content-between align-items-center mt-2">
-                    <h4 className="card-text mb-0">${product.price}</h4>
-                    <button id='plus-icon'
-                    className="btn rounded-circle"
-                    onClick={() => addtocart(product.id)}
-                  >
-                    <i className="fas fa-plus" ></i>
-                  </button>
+        </div>
+  
+        {/* New Arrivals Section */}
+        <div className="row gy-4 mt-4">
+          <h1 className="text-center w-100">New Arrivals</h1>
+          {products
+            .filter((product) => product.category === 'mobile')
+            .map((product, index) => (
+              <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div className="card position-relative h-100 hover-card">
+                  <i
+                    className="far fa-heart text-dark position-absolute heart-icon"
+                    style={{
+                      fontSize: '20px',
+                      top: '8px',
+                      right: '16px',
+                    }}
+                  ></i>
+                  <img
+                    src={product.imgUrl}
+                    alt={product.productName}
+                    className="card-img-top"
+                    style={{ height: '150px', objectFit: 'contain' }}
+                  />
+                  <div className="card-body text-center">
+                    <h5 className="card-title">{product.productName.slice(0, 20)}</h5>
+                    <div>
+                      {[...Array(5)].map((_, index) => (
+                        <i key={index} className="fas fa-star" style={{ color: 'gold' }}></i>
+                      ))}
+                    </div>
+                    <div className="d-flex justify-content-between align-items-center mt-2">
+                      <h4 className="card-text mb-0">${product.price}</h4>
+                      <button
+                        className="btn rounded-circle" id="plus-icon"
+                        onClick={() => addtocart(product.id)}
+                      >
+                        <i className="fas fa-plus"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+        </div>
+  
+        {/* Best Sales Section */}
+        <div className="row gy-4 mt-4">
+          <h1 className="text-center w-100">Best Sales</h1>
+          {products
+            .filter((product) => product.category === 'sofa')
+            .map((product, index) => (
+              <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div className="card position-relative h-100 hover-card">
+                  <i
+                    className="far fa-heart text-dark position-absolute heart-icon"
+                    style={{
+                      fontSize: '20px',
+                      top: '8px',
+                      right: '16px',
+                    }}
+                  ></i>
+                  <img
+                    src={product.imgUrl}
+                    alt={product.productName}
+                    className="card-img-top"
+                    style={{ height: '150px', objectFit: 'contain' }}
+                  />
+                  <div className="card-body text-center">
+                    <h5 className="card-title">{product.productName.slice(0, 20)}</h5>
+                    <div>
+                      {[...Array(5)].map((_, index) => (
+                        <i key={index} className="fas fa-star" style={{ color: 'gold' }}></i>
+                      ))}
+                    </div>
+                    <div className="d-flex justify-content-between align-items-center mt-2">
+                      <h4 className="card-text mb-0">${product.price}</h4>
+                      <button id="plus-icon"
+                        className="btn rounded-circle"
+                        onClick={() => addtocart(product.id)}
+                      >
+                        <i className="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+        </div>
       </div>
-
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-      />
     </div>
   );
-
-}  
+}

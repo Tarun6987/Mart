@@ -65,7 +65,7 @@ export default function Nav() {
                   textAlign:'center',
                   color: 'white',
                   fontWeight:'bold',
-                  backgroundColor:'rgb(12, 36, 12)'
+                  backgroundColor:'rgb(0,71,171)'
                 }}
               >
                 {Object.keys(cart).length}
@@ -75,7 +75,6 @@ export default function Nav() {
         </div>
       </div>
     </nav>
-  </header>
-  
+  </header> 
   );
 }

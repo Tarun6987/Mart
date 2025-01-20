@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState} from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import productImg01 from "../Images/double-sofa-01.png";
 import productImg02 from "../Images/double-sofa-02.png";
 import productImg03 from "../Images/double-sofa-03.png";
@@ -10,6 +10,7 @@ import productImg07 from "../Images/arm-chair-01.jpg";
 import productImg08 from "../Images/arm-chair-02.jpg";
 import productImg09 from "../Images/arm-chair-03.jpg";
 import productImg10 from "../Images/arm-chair-01.jpg";
+import table from '../Images/table.jpg';
 
 import phone01 from "../Images/phone-01.jpg";
 import phone02 from "../Images/phone-02.jpg";
@@ -30,6 +31,11 @@ import wireless04 from "../Images/wireless-04.png";
 
 import { Link } from 'react-router-dom';
 import { AppContext } from './App';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+
+
+
 export default function Shop() {
   const { products, setProducts } = useContext(AppContext);
   const [search, setSearch] = useState('')
@@ -636,33 +642,96 @@ export default function Shop() {
     )
   }, [setProducts])
   return (
-    <div className="container py-4" style={{marginTop:'100px'}}>
+    <div className="container-fluid p-0" style={{ marginTop: '100px' }}>
+      <div
+        id="ctn"
+        className="d-flex justify-content-center align-items-center text-black"
+        style={{
+          backgroundImage: `url(${table})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          height: '250px',
+          width: '100vw',
+          marginTop: '100px',
+          marginBottom: '100px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <h1 style={{ color: 'white' }}>Product</h1>
+      </div>
+
       {/* Filter Section */}
       <div className="row mb-4">
-        <div className="col-12 col-md-6 mb-3">
-          <select onClick={handleChange} className="form-select" id="product-filter">
-            <option value="sofa">Filter by Category</option>
+        <div
+          className="col-12 col-md-6 mb-3"
+          style={{ width: 'fit-content', marginLeft: '110px' }}
+        >
+          <select
+            onClick={handleChange}
+            className="form-select"
+            id="product-filter"
+            style={{
+              backgroundColor: 'rgb(0, 0, 139)',  // Background color
+              color: 'white',  
+              paddingRight: '30px',  // Space for custom arrow
+              border: '1px solid #ccc',  // Optional border for styling
+              fontSize: '16px',  // Font size
+             
+            }}
+          >
+            <option value="sofa">Filter by Category |</option>
             <option value="sofa">Sofa</option>
             <option value="mobile">Mobile</option>
             <option value="watch">Watch</option>
             <option value="wireless">Wireless</option>
             <option value="chair">Chair</option>
           </select>
+
+
         </div>
         <div className="col-12 col-md-6 mb-3">
-          <input
-            type="search"
-            onChange={handleSearch}
-            className="form-control"
-            placeholder="Search products"
-          />
+          <div className="input-group" style={{ position: 'relative' }}>
+            <input
+              type="search"
+              onChange={handleSearch}
+              className="form-control"
+              placeholder="Search products"
+              style={{
+                borderRadius: '50px',
+                paddingLeft: '30px', 
+                paddingRight: '30px', 
+              }}
+            />
+            <span
+              className="input-group-text"
+              style={{
+                position: 'absolute',
+                right: '10px', // Position the icon inside the input field on the right
+                top: '50%',
+                transform: 'translateY(-50%)',
+                background: 'none',
+                borderRadius: '25px',
+                border: 'none',
+              }}
+            >
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </span>
+          </div>
         </div>
       </div>
-  
+
       {/* Product Cards Section */}
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
         {filteredProducts.map((product, index) => (
-          <Link to="/shop/detail"className="text-decoration-none" state={{ product }} key={index}>
+          <Link
+            to="/shop/detail"
+            className="text-decoration-none"
+            state={{ product }}
+            key={index}
+          >
             <div className="col d-flex justify-content-center">
               <div className="card" style={{ width: '18rem' }}>
                 <img
@@ -675,7 +744,11 @@ export default function Shop() {
                   <h5 className="card-title">{product.productName.slice(0, 20)}</h5>
                   <div>
                     {[...Array(5)].map((_, index) => (
-                      <i key={index} className="fas fa-star" style={{ color: 'gold' }}></i>
+                      <i
+                        key={index}
+                        className="fas fa-star"
+                        style={{ color: 'gold' }}
+                      ></i>
                     ))}
                   </div>
                   <div className="d-flex justify-content-between align-items-center mt-2">
@@ -690,5 +763,4 @@ export default function Shop() {
       </div>
     </div>
   );
-  
 }
