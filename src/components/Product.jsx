@@ -1004,8 +1004,6 @@ export default function Productpage() {
               </div>
             ))}
         </div>
-  
-        {/* Best Sales Section */}
         <div className="row gy-4 mt-4">
           <h1 className="text-center w-100">Best Sales</h1>
           {products
