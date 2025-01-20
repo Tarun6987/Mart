@@ -34,7 +34,7 @@ const dec = (product) => {
                 <Nav/>
                 <Routes>
                     <Route path="/"element={<Productpage/>}></Route>
-                    <Route path="/shop"element={<Shop/>}></Route>
+<Route path="/shop"element={<Shop/>}></Route>
                     <Route path="/cart"element={<Cartpage/>}></Route>
                     <Route path="/shop/detail" element={<ProductDetail/>} />
                 </Routes>
