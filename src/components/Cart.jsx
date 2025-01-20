@@ -57,16 +57,13 @@ export default function Cartpage() {
                       <button onClick={() => inc(product)} className="btn btn-sm text-primary btn-outline-info bg-white ">
                         <i className="fas fa-plus"></i>
                       </button>
-
                       <span className="mx-2">{cart[product.id]}</span>
-
                       <button
                         onClick={() => dec(product)}
                         className="btn btn-sm me-1 " style={{backgroundColor:'whitesmoke'}}
                       >
                         <i className="fas fa-minus"></i>
                       </button>
-
                     </div>
                   </div>
                 </div>
