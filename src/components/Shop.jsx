@@ -668,26 +668,59 @@ export default function Shop() {
           style={{ width: 'fit-content', marginLeft: '110px' }}
         >
           {/* Select Dropdown */}
-          <select
-            onClick={handleChange}
-            className="form-select"
-            id="product-filter"
-            style={{
-              color: 'white',
-              paddingRight: '30px',
-              border: '1px solid #ccc',
-              fontSize: '16px',
-              appearance: 'none', // Removes default dropdown arrow
-              outline: 'none', // Removes focus outline
-            }}
-          >
-            <option value="sofa">Filter by Category |</option>
-            <option value="sofa">Sofa</option>
-            <option value="mobile">Mobile</option>
-            <option value="watch">Watch</option>
-            <option value="wireless">Wireless</option>
-            <option value="chair">Chair</option>
-          </select>
+          <div style={{ position: 'relative', width: 'fit-content' }}>
+  <select
+    onClick={handleChange}
+    className="form-select custom-select"
+    id="product-filter"
+    style={{
+      backgroundColor: 'rgb(0, 0, 139)', // Dark blue background
+      color: 'white', // White text
+      border: '1px solid #ccc',
+      paddingRight: '40px', // Space for the custom arrow
+      fontSize: '16px',
+      appearance: 'none', // Removes default browser arrow
+      outline: 'none', // Removes focus outline
+      borderRadius: '5px', // Slight rounding for the dropdown
+    }}
+  >
+    <option value="sofa" style={{ backgroundColor: 'white', color: 'black' }}>
+      Filter by Category |
+    </option>
+    <option value="sofa" style={{ backgroundColor: 'white', color: 'black' }}>
+      Sofa
+    </option>
+    <option value="mobile" style={{ backgroundColor: 'white', color: 'black' }}>
+      Mobile
+    </option>
+    <option value="watch" style={{ backgroundColor: 'white', color: 'black' }}>
+      Watch
+    </option>
+    <option value="wireless" style={{ backgroundColor: 'white', color: 'black' }}>
+      Wireless
+    </option>
+    <option value="chair" style={{ backgroundColor: 'white', color: 'black' }}>
+      Chair
+    </option>
+  </select>
+  {/* Custom White Arrow */}
+  <span
+    style={{
+      position: 'absolute',
+      right: '10px', // Position the arrow
+      top: '50%', // Center vertically
+      transform: 'translateY(-50%)',
+      pointerEvents: 'none', // Prevent interaction
+      color: 'white', // White color for the arrow
+      fontSize: '16px', // Font size for the arrow
+    }}
+  >
+    <i className="fa fa-chevron-down"></i>
+    {/* &#x2304; */}
+  </span>
+</div>
+
+
         </div>
   
         {/* Search Input */}
@@ -697,7 +730,7 @@ export default function Shop() {
               type="search"
               onChange={handleSearch}
               className="form-control"
-              placeholder="Search products"
+              placeholder="Search..."
               style={{
                 borderRadius: '50px',
                 paddingLeft: '30px',
