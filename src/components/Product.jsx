@@ -824,7 +824,6 @@ export default function Productpage() {
   }, [])
   return (
     <div className="container-fluid px-0 mt-5">
-      {/* Carousel Section */}
       <div
         id="carouselExampleIndicators"
         className="carousel slide"
