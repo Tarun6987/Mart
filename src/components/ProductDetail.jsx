@@ -664,13 +664,11 @@ export default function ProductDetail() {
       backgroundSize: '100% 75%', // Match the background size for the reflection
       backgroundPosition: 'center',
       transform: 'scaleY(-1)', // Flip vertically for reflection
-      opacity: 0.3, // Control reflection visibility
+      opacity: 0.3, 
       height: '100%',
       filter: 'blur(4px)',
     }}
   ></div>
-
-  {/* Text Content */}
   <h1
     className="position-relative"
     style={{
