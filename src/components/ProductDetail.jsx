@@ -661,9 +661,9 @@ export default function ProductDetail() {
     className="position-absolute top-100 start-0 w-100"
     style={{
       backgroundImage: `url(${table})`,
-      backgroundSize: '100% 75%', // Match the background size for the reflection
+      backgroundSize: '100% 75%', 
       backgroundPosition: 'center',
-      transform: 'scaleY(-1)', // Flip vertically for reflection
+      transform: 'scaleY(-1)', 
       opacity: 0.3, 
       height: '100%',
       filter: 'blur(4px)',
