@@ -641,26 +641,48 @@ export default function Shop() {
   return (
     <div className="container-fluid p-0" style={{ marginTop: '100px' }}>
       <div
-        id="ctn"
-        className="d-flex justify-content-center align-items-center text-black"
-        style={{
-          backgroundImage: `url(${table})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundColor: 'dimgray',
-          height: '250px',
-          width: '100vw',
-          marginTop: '100px',
-          marginBottom: '100px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <h1 style={{ color: 'rgba(255, 255, 255, 1)' }}>Product</h1>
-      </div>
-  
+  id="ctn"
+  className="d-flex justify-content-center align-items-center text-black position-relative"
+  style={{
+    backgroundImage: `url(${table})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundColor: 'dimgray',
+    height: '250px',
+    width: '100vw',
+    marginTop: '100px',
+    marginBottom: '100px',
+    overflow: 'hidden',
+  }}
+>
+  {/* Add the water reflection effect */}
+  <div
+    className="position-absolute top-100 start-0 w-100"
+    style={{
+      backgroundImage: `url(${table})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      transform: 'scaleY(-1)', // Flip vertically for reflection
+      opacity: 0.3, // Control reflection visibility
+      height: '100%',
+      filter: 'blur(4px)',
+    }}
+  ></div>
+
+  {/* Text Content */}
+  <h1
+    className="position-relative"
+    style={{
+      color: 'rgba(255, 255, 255, 1)',
+      textShadow: '2px 2px 8px rgba(0, 0, 0, 0.8)', // Make text more focused
+      zIndex: 1, // Ensure text is on top
+    }}
+  >
+    Product
+  </h1>
+</div>
+
       {/* Filter Section */}
       <div className="row mb-4">
         <div
@@ -674,8 +696,8 @@ export default function Shop() {
     className="form-select custom-select"
     id="product-filter"
     style={{
-      backgroundColor: 'rgb(0, 0, 139)', // Dark blue background
-      color: 'white', // White text
+      backgroundColor: 'rgb(0, 0, 139)', 
+      color: 'white', 
       border: '1px solid #ccc',
       paddingRight: '40px', // Space for the custom arrow
       fontSize: '16px',
@@ -719,10 +741,7 @@ export default function Shop() {
     {/* &#x2304; */}
   </span>
 </div>
-
-
         </div>
-  
         {/* Search Input */}
         <div className="col-12 col-md-6 mb-3">
           <div className="input-group" style={{ position: 'relative' }}>
@@ -758,7 +777,7 @@ export default function Shop() {
       </div>
   
       {/* Product Cards Section */}
-      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
         {filteredProducts.map((product, index) => (
           <Link
             to="/shop/detail"

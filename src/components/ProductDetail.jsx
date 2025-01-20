@@ -642,21 +642,49 @@ export default function ProductDetail() {
         closeOnClick
         rtl={false}
       />
-      <div
-        id="ctn"
-        className="d-flex justify-content-center align-items-center text-white"
-        style={{
-          backgroundImage: `url(${table})`,
-          backgroundSize: '100% 75%',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          height: '350px',
-          width: '100%',
-          marginBottom: '20px',
-        }}
-      >
-        <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold' }}>{product.productName}</h1>
-      </div>
+     <div
+  id="ctn"
+  className="d-flex justify-content-center align-items-center text-white position-relative"
+  style={{
+    backgroundImage: `url(${table})`,
+    backgroundSize: '100% 75%', // Customize the size of the background
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    height: '350px',
+    width: '100%',
+    marginBottom: '20px',
+    overflow: 'hidden',
+  }}
+>
+  {/* Add the water reflection effect */}
+  <div
+    className="position-absolute top-100 start-0 w-100"
+    style={{
+      backgroundImage: `url(${table})`,
+      backgroundSize: '100% 75%', // Match the background size for the reflection
+      backgroundPosition: 'center',
+      transform: 'scaleY(-1)', // Flip vertically for reflection
+      opacity: 0.3, // Control reflection visibility
+      height: '100%',
+      filter: 'blur(4px)',
+    }}
+  ></div>
+
+  {/* Text Content */}
+  <h1
+    className="position-relative"
+    style={{
+      fontSize: '2.5rem',
+      fontWeight: 'bold',
+      color: 'rgba(255, 255, 255, 1)',
+      textShadow: '2px 2px 8px rgba(0, 0, 0, 0.8)', // Make text more focused
+      zIndex: 1, // Ensure text is on top
+    }}
+  >
+    {product.productName}
+  </h1>
+</div>
+
 
       {/* Product Detail Card */}
       <div className="card mb-4">
