@@ -788,7 +788,7 @@ export default function ProductDetail() {
                     className="card-img-top"
                     style={{ height: '150px', objectFit: 'contain' }}
                   />
-                  <div className="card-body">
+                  <div className="card-body text-center">
                     <h5 className="card-title">{relatedProduct.productName.slice(0, 20)}</h5>
                     <div>
                       {[...Array(5)].map((_, index) => (
