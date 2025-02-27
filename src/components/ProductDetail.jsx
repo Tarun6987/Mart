@@ -31,6 +31,7 @@ import table from '../Images/table.jpg';
 export default function ProductDetail() {
   const { products, setProducts, addtocart, qty, handleQty } = useContext(AppContext);
   const location = useLocation();
+  // console.log(typeof(location))
   const { product } = location.state || {}
   const [activeTab, setActiveTab] = useState('description');
   const handleClick = (tab) => {
